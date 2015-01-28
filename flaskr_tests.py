@@ -19,5 +19,10 @@ class FlaskrTestCase(unittest.TestCase):
         os.unlink(flaskr.app.config['DATABASE'])
 
 
+    def test_empty_db(self):
+        rv = self.app.get('/')
+        assert 'No entries here so far' in rv.data 
+
+
 if __name__ == '__main__':
     unittest.main()
